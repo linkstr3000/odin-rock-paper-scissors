@@ -15,6 +15,28 @@ function getPlayerInput()
     return prompt("Please input Rock, Paper or Scissors").toLowerCase();
 }
 
-console.log(getPlayerInput());
-console.log(getPlayerInput());
-console.log(getPlayerInput());
+function playRound(playerChoice, computerChoice)
+{
+    let result = "error"
+    if (playerChoice === "rock")
+    {
+        if (computerChoice === "rock") {result = "tie";}
+        else if (computerChoice === "paper") {result = "lose";}
+        else if (computerChoice === "scissors") {result = "win";}
+    }
+    else if (playerChoice === "paper")
+    {
+        if (computerChoice === "rock") {result = "win";}
+        else if (computerChoice === "paper") {result = "tie";}
+        else if (computerChoice === "scissors") {result = "lose";}
+    }
+    else if (playerChoice === "scissors")
+    {
+        if (computerChoice === "rock") {result = "lose";}
+        else if (computerChoice === "paper") {result = "win";}
+        else if (computerChoice === "scissors") {result = "tie";}
+    }
+    return result;
+}
+
+console.log(playRound(getPlayerInput(), getComputerChoice()));
