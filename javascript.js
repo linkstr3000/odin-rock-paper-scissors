@@ -1,4 +1,6 @@
-console.log("Welcome to Rock Paper Scissors");
+let playerScore = 0;
+let computerScore = 0;
+let currentResult = "";
 
 function getComputerChoice()
 {
@@ -20,23 +22,38 @@ function playRound(playerChoice, computerChoice)
     let result = "error"
     if (playerChoice === "rock")
     {
-        if (computerChoice === "rock") {result = "tie";}
-        else if (computerChoice === "paper") {result = "lose";}
-        else if (computerChoice === "scissors") {result = "win";}
+        if (computerChoice === "rock") {result = "tied";}
+        else if (computerChoice === "paper") {result = "lost";}
+        else if (computerChoice === "scissors") {result = "won";}
     }
     else if (playerChoice === "paper")
     {
-        if (computerChoice === "rock") {result = "win";}
-        else if (computerChoice === "paper") {result = "tie";}
-        else if (computerChoice === "scissors") {result = "lose";}
+        if (computerChoice === "rock") {result = "won";}
+        else if (computerChoice === "paper") {result = "tied";}
+        else if (computerChoice === "scissors") {result = "lost";}
     }
     else if (playerChoice === "scissors")
     {
-        if (computerChoice === "rock") {result = "lose";}
-        else if (computerChoice === "paper") {result = "win";}
-        else if (computerChoice === "scissors") {result = "tie";}
+        if (computerChoice === "rock") {result = "lost";}
+        else if (computerChoice === "paper") {result = "won";}
+        else if (computerChoice === "scissors") {result = "tied";}
     }
-    return result;
+    console.log("The Computer chose " + computerChoice + " You " + result + " this round!")
+    if (result === "won") {playerScore ++;}
+    else if (result === "lost") {computerScore ++;}
 }
 
-console.log(playRound(getPlayerInput(), getComputerChoice()));
+playRound(getPlayerInput(), getComputerChoice());
+console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
+playRound(getPlayerInput(), getComputerChoice());
+console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
+playRound(getPlayerInput(), getComputerChoice());
+console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
+playRound(getPlayerInput(), getComputerChoice());
+console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
+playRound(getPlayerInput(), getComputerChoice());
+console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
+
+if (playerScore>computerScore) console.log("You Won the Game!"); 
+else if (computerScore>playerScore) console.log("The Computer Won the Game");
+else console.log("The game was a Tie!")
