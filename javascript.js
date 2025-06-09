@@ -2,9 +2,10 @@ let playerScore = 0;
 let computerScore = 0;
 let currentResult = "";
 
-let rockButton = document.querySelector("#RockButton");
-let paperButton = document.querySelector("#PaperButton");
-let scissorsButton = document.querySelector("#ScissorsButton");
+const rockButton = document.querySelector("#RockButton");
+const paperButton = document.querySelector("#PaperButton");
+const scissorsButton = document.querySelector("#ScissorsButton");
+const gameWindow = document.querySelector(".GameWindow");
 
 console.log(rockButton);
 rockButton.addEventListener("click", () => {playRound("rock", getComputerChoice())});
@@ -47,7 +48,7 @@ function playRound(playerChoice, computerChoice)
         else if (computerChoice === "paper") {result = "won";}
         else if (computerChoice === "scissors") {result = "tied";}
     }
-    console.log("The Computer chose " + computerChoice + " You " + result + " this round!")
+    gameWindow.textContent = ("The Computer chose " + computerChoice + " You " + result + " this round!");
     if (result === "won") {playerScore ++;}
     else if (result === "lost") {computerScore ++;}
     console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
