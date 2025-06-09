@@ -2,6 +2,15 @@ let playerScore = 0;
 let computerScore = 0;
 let currentResult = "";
 
+let rockButton = document.querySelector("#RockButton");
+let paperButton = document.querySelector("#PaperButton");
+let scissorsButton = document.querySelector("#ScissorsButton");
+
+console.log(rockButton);
+rockButton.addEventListener("click", () => {playRound("rock", getComputerChoice())});
+paperButton.addEventListener("click", () => {playRound("paper", getComputerChoice())});
+scissorsButton.addEventListener("click", () => {playRound("scissors", getComputerChoice())});
+
 function getComputerChoice()
 {
     let rng = Math.random();
@@ -41,18 +50,8 @@ function playRound(playerChoice, computerChoice)
     console.log("The Computer chose " + computerChoice + " You " + result + " this round!")
     if (result === "won") {playerScore ++;}
     else if (result === "lost") {computerScore ++;}
+    console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
 }
-
-playRound(getPlayerInput(), getComputerChoice());
-console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
-playRound(getPlayerInput(), getComputerChoice());
-console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
-playRound(getPlayerInput(), getComputerChoice());
-console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
-playRound(getPlayerInput(), getComputerChoice());
-console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
-playRound(getPlayerInput(), getComputerChoice());
-console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
 
 if (playerScore>computerScore) console.log("You Won the Game!"); 
 else if (computerScore>playerScore) console.log("The Computer Won the Game");
