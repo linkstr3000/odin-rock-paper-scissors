@@ -6,8 +6,8 @@ const rockButton = document.querySelector("#RockButton");
 const paperButton = document.querySelector("#PaperButton");
 const scissorsButton = document.querySelector("#ScissorsButton");
 const gameWindow = document.querySelector(".GameWindow");
+const gameLog = document.querySelector("#GameLog p1");
 
-console.log(rockButton);
 rockButton.addEventListener("click", () => {playRound("rock", getComputerChoice())});
 paperButton.addEventListener("click", () => {playRound("paper", getComputerChoice())});
 scissorsButton.addEventListener("click", () => {playRound("scissors", getComputerChoice())});
@@ -48,12 +48,8 @@ function playRound(playerChoice, computerChoice)
         else if (computerChoice === "paper") {result = "won";}
         else if (computerChoice === "scissors") {result = "tied";}
     }
-    gameWindow.textContent = ("The Computer chose " + computerChoice + " You " + result + " this round!");
+    gameLog.textContent = ("The Computer chose " + computerChoice + " You " + result + " this round!");
     if (result === "won") {playerScore ++;}
     else if (result === "lost") {computerScore ++;}
-    console.log("The score is now: Player: " + playerScore + " Computer: " +computerScore);
+    gameLog.textContent += (" The score is now: Player: " + playerScore + " Computer: " +computerScore);
 }
-
-if (playerScore>computerScore) console.log("You Won the Game!"); 
-else if (computerScore>playerScore) console.log("The Computer Won the Game");
-else console.log("The game was a Tie!")
